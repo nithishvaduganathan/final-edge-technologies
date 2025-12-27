@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="footer-col brand-col">
                         <Link to="/" className="footer-logo">
                             <Code2 size={28} color="var(--accent)" />
-                            <span>Final Edge</span>
+                            <span>Final Edge Technologies</span>
                         </Link>
                         <p className="footer-desc">
                             Building smart digital solutions for modern businesses. We deliver scalable, secure, and innovative technology.
@@ -56,15 +56,15 @@ const Footer = () => {
                         <ul className="contact-list">
                             <li>
                                 <Mail size={16} />
-                                <span>contact@finaledge.com</span>
+                                <span>finaledgetechnologies@gmail.com</span>
                             </li>
                             <li>
                                 <Phone size={16} />
-                                <span>+1 (555) 123-4567</span>
+                                <span>+91 8531977455</span>
                             </li>
                             <li>
                                 <MapPin size={16} />
-                                <span>123 Tech Park, Innovation City</span>
+                                <span>Thiruvarur, Tamil Nadu, india - 609503</span>
                             </li>
                         </ul>
                     </div>

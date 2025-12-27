@@ -23,7 +23,7 @@ const Header = () => {
         <nav className="nav">
           <Link to="/" className="logo">
             <Code2 size={32} color="var(--accent)" />
-            <span>Final Edge   </span>
+            <span>Final Edge Technologies</span>
           </Link>
 
           {/* Desktop Nav */}

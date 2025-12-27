@@ -25,8 +25,9 @@ const About = () => {
                                 digital transformation journey from concept to deployment and beyond.
                             </p>
                         </div>
-                        <div style={{ background: '#E2E8F0', height: '300px', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <span style={{ color: '#64748B' }}>[Team/Office Image Placeholder]</span>
+                        <div style={{ background: '#E2E8F0', height: '300px', borderRadius: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            {/* <span style={{ color: '#64748B' }}>[Team/Office Image Placeholder]</span> */}
+                            <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '5rem' }} src="public/about_image.png" alt="" />
                         </div>
                     </div>
                 </div>

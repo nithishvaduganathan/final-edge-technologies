@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://finaledgetechnologies.vercel.app/sitemap.xml
