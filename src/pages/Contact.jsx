@@ -34,17 +34,17 @@ const Contact = () => {
 
             <section className="section">
                 <div className="container">
-                    <div className="contact-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '4rem' }}>
+                    <div className="contact-layout">
 
                         {/* Contact Info */}
                         <div>
-                            <div className="contact-info-card" style={{ background: 'var(--primary)', color: 'var(--white)', padding: '2rem', borderRadius: '1rem' }}>
+                            <div className="contact-info-card">
                                 <h3 className="h3" style={{ color: 'var(--white)' }}>Get in Touch</h3>
                                 <p style={{ marginBottom: '2rem', color: '#94A3B8' }}>
                                     Have a project in mind? Fill out the form or reach us directly.
                                 </p>
 
-                                <ul className="contact-details" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                <ul className="contact-details">
                                     <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                         <Mail /> <span>finaledgetechnologies@gmail.com</span>
                                     </li>
@@ -60,54 +60,54 @@ const Contact = () => {
 
                         {/* Contact Form */}
                         <div>
-                            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <form onSubmit={handleSubmit} className="contact-form">
                                 <div className="form-group">
-                                    <label htmlFor="name" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Name</label>
+                                    <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
+                                        className="form-input"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        style={{ width: '100%', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border)', fontFamily: 'inherit' }}
                                     />
                                 </div>
 
-                                <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                <div className="grid-2-cols" style={{ gap: '1.5rem', alignItems: 'start' }}>
                                     <div className="form-group">
-                                        <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Email</label>
+                                        <label htmlFor="email">Email</label>
                                         <input
                                             type="email"
                                             id="email"
                                             name="email"
+                                            className="form-input"
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            style={{ width: '100%', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border)', fontFamily: 'inherit' }}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="phone" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Phone</label>
+                                        <label htmlFor="phone">Phone</label>
                                         <input
                                             type="tel"
                                             id="phone"
                                             name="phone"
+                                            className="form-input"
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            style={{ width: '100%', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border)', fontFamily: 'inherit' }}
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="service" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Service Required</label>
+                                    <label htmlFor="service">Service Required</label>
                                     <select
                                         id="service"
                                         name="service"
+                                        className="form-select"
                                         value={formData.service}
                                         onChange={handleChange}
-                                        style={{ width: '100%', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border)', fontFamily: 'inherit', background: 'var(--white)' }}
                                     >
                                         <option>Website Development</option>
                                         <option>Mobile Application</option>
@@ -118,15 +118,15 @@ const Contact = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="message" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Message</label>
+                                    <label htmlFor="message">Message</label>
                                     <textarea
                                         id="message"
                                         name="message"
                                         rows="5"
+                                        className="form-textarea"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        style={{ width: '100%', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid var(--border)', fontFamily: 'inherit' }}
                                     ></textarea>
                                 </div>
 

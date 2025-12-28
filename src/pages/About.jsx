@@ -12,22 +12,21 @@ const About = () => {
 
             <section className="section">
                 <div className="container">
-                    <div className="grid gap-8" style={{ gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
+                    <div className="grid-2-cols">
                         <div>
                             <h2 className="h2" style={{ marginBottom: '1.5rem' }}>Our Mission</h2>
-                            <p style={{ marginBottom: '1rem', color: 'var(--text-light)' }}>
+                            <p className="text-muted mb-4">
                                 At Final Edge Technologies, our mission is to empower businesses with cutting-edge digital solutions
                                 that drive growth and efficiency. We believe in the transformative power of technology to solve
                                 complex challenges.
                             </p>
-                            <p style={{ color: 'var(--text-light)' }}>
+                            <p className="text-muted">
                                 We are dedicated to building long-term partnerships with our clients, engaging in every step of the
                                 digital transformation journey from concept to deployment and beyond.
                             </p>
                         </div>
-                        <div style={{ background: '#E2E8F0', height: '300px', borderRadius: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            {/* <span style={{ color: '#64748B' }}>[Team/Office Image Placeholder]</span> */}
-                            <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '5rem' }} src="public/about_image.png" alt="" />
+                        <div className="about-image-container">
+                            <img className="about-image" src="/about_image.png" alt="Our Team" />
                         </div>
                     </div>
                 </div>
@@ -38,18 +37,18 @@ const About = () => {
                     <div className="text-center mb-4">
                         <h2 className="h2">Our Core Values</h2>
                     </div>
-                    <div className="grid gap-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-                        <div className="card" style={{ padding: '2rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
+                    <div className="grid-responsive">
+                        <div className="tech-card">
                             <h3 className="h3">Innovation</h3>
-                            <p style={{ color: 'var(--text-light)' }}>Constantly exploring new technologies to provide the best solutions.</p>
+                            <p className="text-muted">Constantly exploring new technologies to provide the best solutions.</p>
                         </div>
-                        <div className="card" style={{ padding: '2rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
+                        <div className="tech-card">
                             <h3 className="h3">Integrity</h3>
-                            <p style={{ color: 'var(--text-light)' }}>Transparent communication and honest business practices.</p>
+                            <p className="text-muted">Transparent communication and honest business practices.</p>
                         </div>
-                        <div className="card" style={{ padding: '2rem', border: '1px solid var(--border)', borderRadius: '0.5rem' }}>
+                        <div className="tech-card">
                             <h3 className="h3">Excellence</h3>
-                            <p style={{ color: 'var(--text-light)' }}>Delivering high-quality, bug-free, and performant code.</p>
+                            <p className="text-muted">Delivering high-quality, bug-free, and performant code.</p>
                         </div>
                     </div>
                 </div>

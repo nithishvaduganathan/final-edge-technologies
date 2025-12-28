@@ -1,25 +1,31 @@
+import { Code, Server, Smartphone, Cpu, Database } from 'lucide-react';
 import '../index.css';
 
 const TechStack = () => {
     const stacks = [
         {
             category: "Frontend",
+            icon: Code,
             techs: ["React.js", "HTML5", "CSS3", "JavaScript (ES6+)", "Tailwind / Vanilla CSS"]
         },
         {
             category: "Backend",
+            icon: Server,
             techs: ["Node.js", "Express", "Python", "Django/Flask"]
         },
         {
             category: "Mobile",
+            icon: Smartphone,
             techs: ["Flutter", "React Native", "Android (Kotlin/Java)"]
         },
         {
             category: "IoT & Hardware",
+            icon: Cpu,
             techs: ["ESP32", "Arduino", "MQTT", "Sensors & Actuators"]
         },
         {
             category: "Database & Cloud",
+            icon: Database,
             techs: ["PostgreSQL", "MongoDB", "Firebase", "AWS / Google Cloud"]
         }
     ];
@@ -35,34 +41,27 @@ const TechStack = () => {
 
             <section className="section">
                 <div className="container">
-                    <div className="grid gap-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-                        {stacks.map((stack) => (
-                            <div key={stack.category} className="tech-card" style={{
-                                padding: '2rem',
-                                border: '1px solid var(--border)',
-                                borderRadius: '1rem',
-                                background: 'var(--white)',
-                                boxShadow: 'var(--shadow-sm)'
-                            }}>
-                                <h3 className="h3" style={{ borderBottom: '2px solid var(--accent)', paddingBottom: '0.5rem', display: 'inline-block', marginBottom: '1.5rem' }}>
-                                    {stack.category}
-                                </h3>
-                                <div className="tech-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                                    {stack.techs.map(tech => (
-                                        <span key={tech} style={{
-                                            background: '#EFF6FF',
-                                            color: 'var(--accent-dark)',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '2rem',
-                                            fontWeight: '500',
-                                            fontSize: '0.9rem'
-                                        }}>
-                                            {tech}
-                                        </span>
-                                    ))}
+                    <div className="grid-responsive">
+                        {stacks.map((stack) => {
+                            const Icon = stack.icon;
+                            return (
+                                <div key={stack.category} className="tech-card">
+                                    <div className="tech-header">
+                                        <h3 className="h3" style={{ marginBottom: 0 }}>
+                                            {stack.category}
+                                        </h3>
+                                        <Icon size={24} color="var(--accent)" />
+                                    </div>
+                                    <div className="tech-list">
+                                        {stack.techs.map(tech => (
+                                            <span key={tech} className="tech-badge">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>

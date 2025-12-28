@@ -49,26 +49,11 @@ const Services = () => {
             <div className="container section">
                 <div className="services-list">
                     {services.map((service, index) => (
-                        <div key={service.id} className="service-detail-card" style={{
-                            display: 'flex',
-                            gap: '3rem',
-                            marginBottom: '4rem',
-                            flexDirection: index % 2 === 1 ? 'row-reverse' : 'row',
-                            alignItems: 'center'
-                        }}>
-                            <div className="service-img-placeholder" style={{
-                                flex: 1,
-                                height: '300px',
-                                background: '#F1F5F9',
-                                borderRadius: '1rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                border: '1px solid var(--border)'
-                            }}>
+                        <div key={service.id} className={`service-detail-card ${index % 2 === 1 ? 'reverse' : ''}`}>
+                            <div className="service-img-placeholder">
                                 {service.icon}
                             </div>
-                            <div className="service-info" style={{ flex: 1 }}>
+                            <div className="service-info">
                                 <h2 className="h2">{service.title}</h2>
                                 <p className="mb-4" style={{ fontSize: '1.1rem', color: 'var(--text-light)' }}>{service.desc}</p>
 
