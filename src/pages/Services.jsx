@@ -1,42 +1,7 @@
-import { Globe, Smartphone, Cpu, ShieldCheck } from 'lucide-react';
+import { SERVICES } from '../data';
 import '../index.css';
 
 const Services = () => {
-    const services = [
-        {
-            id: "web",
-            title: "Website Development",
-            icon: <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1rem' }} src="/webimage.jpg" alt="" />,
-            desc: "We build modern, responsive, and high-performance websites tailored to your brand.",
-            details: ["Corporate Websites", "E-commerce Solutions", "Custom Web Applications", "Dashboards & Portals"],
-            benefits: "Enhanced online presence, better user engagement, and scalable architecture."
-        },
-        {
-            id: "mobile",
-            title: "Mobile App Development",
-            icon: <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1rem' }} src="/mobileimage.jpg" alt="" />,
-            desc: "Native and cross-platform mobile applications for iOS and Android.",
-            details: ["iOS & Android Apps", "Cross-Platform (Flutter/React Native)", "UI/UX Design", "App Store Deployment"],
-            benefits: "Reach customers continuously, improve brand loyalty, and leverage device capabilities."
-        },
-        {
-            id: "iot",
-            title: "IoT Application Development",
-            icon: <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1rem' }} src="/iotimage.jpg" alt="" />,
-            desc: "Connecting devices to the cloud for smart monitoring and automation.",
-            details: ["Smart Home/Office Automation", "Industrial IoT", "ESP32 & Arduino Integration", "Real-time Monitoring Dashboards"],
-            benefits: "Operational efficiency, data-driven insights, and remote control capabilities."
-        },
-        {
-            id: "support",
-            title: "Software Support & Maintenance",
-            icon: <img style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1rem' }} src="/itsupportimage.png" alt="" />,
-            desc: "Ensuring your software remains secure, up-to-date, and bug-free.",
-            details: ["24/7 Monitoring", "Bug Fixes & Patches", "Performance Optimization", "Security Updates"],
-            benefits: "Peace of mind, reduced downtime, and extended software lifecycles."
-        }
-    ];
-
     return (
         <div className="page-container">
             <section className="section bg-light">
@@ -48,22 +13,50 @@ const Services = () => {
 
             <div className="container section">
                 <div className="services-list">
-                    {services.map((service, index) => (
-                        <div key={service.id} className={`service-detail-card ${index % 2 === 1 ? 'reverse' : ''}`}>
-                            <div className="service-img-placeholder">
-                                {service.icon}
+                    {SERVICES.map((service, index) => (
+                        <div key={service.id} className="card fade-in" style={{ marginBottom: '3rem', flexDirection: 'row', gap: '2rem', alignItems: 'start', padding: '3rem' }}>
+                            {/* Icon Column */}
+                            <div style={{ flex: '0 0 80px', display: 'flex', justifyContent: 'center' }}>
+                                <div style={{
+                                    background: 'rgba(59, 130, 246, 0.1)',
+                                    borderRadius: '50%',
+                                    width: '80px',
+                                    height: '80px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    {service.icon}
+                                </div>
                             </div>
-                            <div className="service-info">
-                                <h2 className="h2">{service.title}</h2>
-                                <p className="mb-4" style={{ fontSize: '1.1rem', color: 'var(--text-light)' }}>{service.desc}</p>
 
-                                <h4 className="h3" style={{ fontSize: '1.25rem' }}>What We Offer:</h4>
-                                <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
-                                    {service.details.map(detail => <li key={detail} style={{ marginBottom: '0.5rem' }}>{detail}</li>)}
-                                </ul>
+                            {/* Text Content Column */}
+                            <div style={{ flex: 1 }}>
+                                <h2 className="h2" style={{ marginBottom: '1rem' }}>{service.title}</h2>
+                                <p className="text-muted" style={{ fontSize: '1.1rem', marginBottom: '2rem', maxWidth: '800px' }}>
+                                    {service.fullDesc}
+                                </p>
 
-                                <h4 className="h3" style={{ fontSize: '1.25rem' }}>Business Benefits:</h4>
-                                <p style={{ color: 'var(--text-light)' }}>{service.benefits}</p>
+                                <div className="grid-2-cols" style={{ gap: '2rem' }}>
+                                    <div>
+                                        <h4 className="h3" style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>Capabilities</h4>
+                                        <ul style={{ listStyle: 'none', padding: 0 }}>
+                                            {service.details.map((detail, i) => (
+                                                <li key={i} style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-dark)' }}>
+                                                    <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--accent)', borderRadius: '50%', display: 'inline-block' }}></span>
+                                                    {detail}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 className="h3" style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>Key Benefits</h4>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+                                            {service.benefits}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))}

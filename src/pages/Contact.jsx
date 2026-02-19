@@ -15,12 +15,53 @@ const Contact = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const [status, setStatus] = useState({ loading: false, error: '', success: '' });
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form Submitted:', formData);
-        alert('Thank you for contacting us! We will get back to you soon.');
-        // Here you would typically send data to a backend
-        setFormData({ name: '', email: '', phone: '', service: 'Website Development', message: '' });
+        setStatus({ loading: true, error: '', success: '' });
+
+        const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+        const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+        if (!botToken || !chatId) {
+            setStatus({ loading: false, error: 'Telegram configuration is missing.', success: '' });
+            return;
+        }
+
+        const text = `
+New Contact Form Submission:
+---------------------------
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}
+        `;
+
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: text,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!data.ok) {
+                throw new Error(data.description || 'Failed to send message to Telegram.');
+            }
+
+            setStatus({ loading: false, error: '', success: 'Message sent successfully!' });
+            setFormData({ name: '', email: '', phone: '', service: 'Website Development', message: '' });
+
+        } catch (err) {
+            console.error(err);
+            setStatus({ loading: false, error: 'Failed to send message. Please try again later.', success: '' });
+        }
     };
 
     return (
@@ -130,8 +171,13 @@ const Contact = () => {
                                     ></textarea>
                                 </div>
 
-                                <button type="submit" className="btn btn-primary" style={{ alignSelf: 'start' }}>
-                                    Send Message <Send size={18} style={{ marginLeft: '8px' }} />
+                                <div className="form-group">
+                                    {status.error && <p style={{ color: 'red' }}>{status.error}</p>}
+                                    {status.success && <p style={{ color: 'green' }}>{status.success}</p>}
+                                </div>
+
+                                <button type="submit" className="btn btn-primary" style={{ alignSelf: 'start' }} disabled={status.loading}>
+                                    {status.loading ? 'Sending...' : 'Send Message'} <Send size={18} style={{ marginLeft: '8px' }} />
                                 </button>
                             </form>
                         </div>

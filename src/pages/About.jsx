@@ -1,3 +1,4 @@
+import { ABOUT_CONTENT } from '../data';
 import '../index.css';
 
 const About = () => {
@@ -12,21 +13,35 @@ const About = () => {
 
             <section className="section">
                 <div className="container">
-                    <div className="grid-2-cols">
+                    <div className="grid-2-cols" style={{ alignItems: 'start' }}>
                         <div>
-                            <h2 className="h2" style={{ marginBottom: '1.5rem' }}>Our Mission</h2>
-                            <p className="text-muted mb-4">
-                                At Final Edge Technologies, our mission is to empower businesses with cutting-edge digital solutions
-                                that drive growth and efficiency. We believe in the transformative power of technology to solve
-                                complex challenges.
+                            <h2 className="h2" style={{ marginBottom: '1.5rem' }}>{ABOUT_CONTENT.mission.title}</h2>
+                            <p className="text-muted mb-4" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                                {ABOUT_CONTENT.mission.text}
                             </p>
-                            <p className="text-muted">
-                                We are dedicated to building long-term partnerships with our clients, engaging in every step of the
-                                digital transformation journey from concept to deployment and beyond.
+
+                            <h3 className="h3" style={{ marginTop: '2rem' }}>Who We Are</h3>
+                            <p className="text-muted" style={{ fontSize: '1rem' }}>
+                                Founded with a vision to bridge the gap between complex technology and business needs, Final Edge Technologies has grown into a full-service digital agency. We pride ourselves on being more than just developers; we are strategic partners who understand the market dynamics and the importance of ROI.
                             </p>
                         </div>
-                        <div className="about-image-container">
-                            <img className="about-image" src="/about_image.png" alt="Our Team" />
+                        {/* Replaced large image with text-heavy "Our Process" card or smaller image if needed */}
+                        <div className="card bg-light" style={{ border: 'none' }}>
+                            <h3 className="h3">Why We Stand Out</h3>
+                            <ul style={{ listStyle: 'none', space: '1rem' }}>
+                                <li style={{ marginBottom: '1rem', display: 'flex', gap: '1rem' }}>
+                                    <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>01.</span>
+                                    <span><strong>Client-Centric Approach:</strong> We don't just write code; we solve business problems.</span>
+                                </li>
+                                <li style={{ marginBottom: '1rem', display: 'flex', gap: '1rem' }}>
+                                    <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>02.</span>
+                                    <span><strong>Agile Methodology:</strong> Flexible, iterative development ensuring we adapt to your feedback.</span>
+                                </li>
+                                <li style={{ marginBottom: '1rem', display: 'flex', gap: '1rem' }}>
+                                    <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>03.</span>
+                                    <span><strong>Future-Proof Tech:</strong> We use modern stacks that scale with your growth.</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -38,18 +53,13 @@ const About = () => {
                         <h2 className="h2">Our Core Values</h2>
                     </div>
                     <div className="grid-responsive">
-                        <div className="tech-card">
-                            <h3 className="h3">Innovation</h3>
-                            <p className="text-muted">Constantly exploring new technologies to provide the best solutions.</p>
-                        </div>
-                        <div className="tech-card">
-                            <h3 className="h3">Integrity</h3>
-                            <p className="text-muted">Transparent communication and honest business practices.</p>
-                        </div>
-                        <div className="tech-card">
-                            <h3 className="h3">Excellence</h3>
-                            <p className="text-muted">Delivering high-quality, bug-free, and performant code.</p>
-                        </div>
+                        {ABOUT_CONTENT.values.map((value, index) => (
+                            <div key={index} className="tech-card fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                                <div style={{ color: 'var(--accent)', marginBottom: '1rem' }}>{value.icon}</div>
+                                <h3 className="h3">{value.title}</h3>
+                                <p className="text-muted">{value.text}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

@@ -10,8 +10,11 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
+    { name: 'Projects', path: '/projects' },
     { name: 'Services', path: '/services' },
     { name: 'Technology', path: '/technology' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -30,8 +33,8 @@ const Header = () => {
           <ul className="nav-desktop">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <Link 
-                  to={link.path} 
+                <Link
+                  to={link.path}
                   className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
                 >
                   {link.name}
@@ -41,7 +44,7 @@ const Header = () => {
           </ul>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="mobile-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
@@ -52,19 +55,19 @@ const Header = () => {
 
         {/* Mobile Nav */}
         <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-           <ul>
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <ul>
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </header>

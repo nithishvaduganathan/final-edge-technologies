@@ -1,11 +1,13 @@
 .header {
     height: var(--header-height);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
@@ -88,10 +90,12 @@
         top: var(--header-height);
         left: 0;
         width: 100%;
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--glass-border);
         padding: 0;
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--glass-shadow);
         overflow: hidden;
         max-height: 0;
         transition: max-height 0.3s ease-in-out;
